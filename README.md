@@ -5,7 +5,7 @@ This project uses STM32CubeIDE and it's a program created to practice my C habil
 
 Pointer are memory addresses.
 
-``` 
+```c
 unsigned long int addressOfa1 = &a1; //this is a pointer (not a number), this returns a warning for data type mismatch (solve this with typecasting -> showed the next line).
 
 unsigned long long int addressOfa1 = (unsigned long int) &a1; //pointers in host are 8 bytes (64-bit architeture).
@@ -15,7 +15,7 @@ printf(“address of variable a1 = %l64X\n”, addressOfa1); //addresses are uns
 
 O tamanho do endereço depende da arquitetura. Arquitetura 16 bits os endereços tem 2 bytes. 
 
-``` 
+```c
 <Pointer data type> <Variable name>; 
 
 long long int someAddress = 0x00007FFF8E3C3824; //Not valid 
@@ -24,7 +24,7 @@ char* address1 = (char*) 0x00007FFF8E3C3824; //valid pointer definition & initia
 ``` 
 O < Pointer data type > não controla o tamanho da memória para as variáveis de ponteiro. Apenas controle seu comportamento. Por exemplo, ele decide, pelo tipo de pointer a quantidade de bytes do dado a ser lido. To read, see the following code:
 
-``` 
+```c 
 chat data = *address1; // dereferencing a pointer to read data 
 
 *address1 = 0x89 // dereferencing a pointer to write data - to re-write its value (value inside the pointer)
@@ -59,14 +59,14 @@ Volatile qualifier it is used when the data can change, with or without the know
 
 **const – also can be used to pointers**
 
-``` 
+```c 
 uint8_t const *const pData = (uint8_t*) 0x20000000; 
 // pData is a constant pointer (*) pointing to constant data of type unsigned integer_8
 ``` 
 
 **volatile – also can be used to pointers**
 
-``` 
+```c 
 uint32_t volatile *pPortCInReg = (uint32_t*) 0x40020810; 
 // *pPortCInReg is a register, read-only, that change according to external voltage applied to input pins of C port
 ``` 
